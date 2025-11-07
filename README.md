@@ -1,31 +1,43 @@
-Role Name
+Ansible - Azure Arc Role
 =========
 
-A brief description of the role goes here.
+This role will configure Azure Arc on a target machine. 
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Target Operating Systems:
+* Debian-based operating systems, e.g Ubuntu 22.04 LTS+, Debian 10+
+* RHEL-based operating systems, e.g Fedora, Red Hat Linux. (Untested)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Within `defaults/main.yml` you will find the following Azure-related variables:
+```
+azure:
+  service_principal_id:
+  service_principal_secret:
+  resource_group:
+  tenant_id:
+  subscription_id:
+  location:
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+* Python 3 + Pip
+* Ansible
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+install-arc.yml:
 
-    - hosts: servers
+    - hosts: all
       roles:
-         - { role: username.rolename, x: 42 }
+         - 
 
 License
 -------
